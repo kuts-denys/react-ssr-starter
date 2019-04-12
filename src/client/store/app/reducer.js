@@ -1,22 +1,18 @@
-/* eslint-disable no-param-reassign */
-import { produce } from 'immer/dist/immer';
-import { ActionTypes } from './actions';
+/* eslint-disable no-param-reassign,no-unused-vars */
+import * as actions from './actions';
+import handleActions from '../immerHandleActions';
 
-export const initialState = Object.freeze({
+const initialState = Object.freeze({
   locale: 'en_US',
 });
 
-export default (state = initialState, action) =>
-  produce(state, (draft) => {
-    const { type, payload } = action;
+const userReducer = handleActions(
+  {
+    [actions.setLocale]: (draft, { payload: { locale } }) => {
+      draft.locale = locale;
+    },
+  },
+  initialState
+);
 
-    switch (type) {
-      case ActionTypes.SETLOCALE: {
-        draft.locale = payload;
-        break;
-      }
-      default: {
-        return draft;
-      }
-    }
-  });
+export default userReducer;
