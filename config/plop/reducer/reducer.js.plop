@@ -1,0 +1,25 @@
+/* eslint-disable no-param-reassign,no-unused-vars */
+import * as actions from './actions';
+import handleActions from '../immerHandleActions';
+
+const initialState = Object.freeze({
+  byId: {},
+  allIds: [],
+  isLoading: false,
+})
+
+const {{camelCase reducerName}}Reducer = handleActions({
+  [actions.create{{pascalCase reducerName}}]: (draft, { payload: { data } }) => {
+    draft.isLoading = true;
+  },
+  [actions.create{{pascalCase reducerName}}Success]: (draft, { payload: { response } }) => {
+    draft.byId = { ...draft.byId, ...response.items };
+    draft.allIds = [ ...draft.allIds, response.items.map(item => item.id) ];
+    draft.isLoading = false;
+  },
+  [actions.reset{{pascalCase reducerName}}State]: (draft) => {
+    draft = initialState;
+  },
+}, initialState)
+
+export default {{camelCase reducerName}}Reducer;

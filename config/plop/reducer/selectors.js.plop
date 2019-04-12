@@ -1,0 +1,14 @@
+import { createSelector } from 'reselect';
+
+export const get{{pascalCase reducerName}} = (state) => state.{{camelCase reducerName}} || {};
+
+export const get{{pascalCase reducerName}}Items = createSelector(
+    [get{{pascalCase reducerName}}],
+    ({{camelCase reducerName}}) => {
+        return {{camelCase reducerName}}.items;
+    }
+);
+
+export const isLoading = createSelector([get{{pascalCase reducerName}}], ({{camelCase reducerName}}) => {
+    return {{camelCase reducerName}}.isLoading;
+});

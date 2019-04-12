@@ -1,0 +1,21 @@
+{
+    "linters": {
+      "*.{js,jsx,css}": [
+        "prettier --write",
+        "git add"
+      ],
+      "*.{js,jsx}": [
+        "eslint --fix",
+        "git add"
+      ],
+      "*.css": [
+        "stylelint src/**/*.css --fix",
+        "git add"
+      ],
+      "ignore": [
+        "build/**/*.js",
+        "node_modules"
+      ]
+    }
+
+}

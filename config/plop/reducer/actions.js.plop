@@ -1,0 +1,7 @@
+import { createAction } from 'redux-actions';
+
+export const create{{pascalCase reducerName}} = createAction('CREATE_{{upperCase (snakeCase reducerName)}}', (data) => ({ data }));
+export const create{{pascalCase reducerName}}Success = createAction('CREATE_{{upperCase (snakeCase reducerName)}}_SUCCESS', (response) => ({ response }));
+export const create{{pascalCase reducerName}}Failure = createAction('CREATE_{{upperCase (snakeCase reducerName)}}_FAILURE');
+
+export const reset{{pascalCase reducerName}}State = createAction('RESET_{{upperCase (snakeCase reducerName)}}_STATE');

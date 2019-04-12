@@ -1,0 +1,28 @@
+import React, { useEffect } from 'react';
+import propTypes from 'prop-types';
+import { withTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
+
+import {{pascalCase componentName}}Component from './{{pascalCase componentName}}';
+
+const {{pascalCase componentName}} = (props) => {
+    return <{{pascalCase componentName}}Component />;
+};
+
+{{pascalCase componentName}}.propTypes = {
+
+}
+
+{{pascalCase componentName}}.defaultProps = {
+
+}
+
+const mapStateToProps = state => ({
+  app: state.app,
+})
+
+const mapDispatchToProps = {};
+
+const WithTranslation = withTranslation()({{pascalCase componentName}});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WithTranslation);
