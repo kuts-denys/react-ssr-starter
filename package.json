@@ -1,25 +1,26 @@
 {
-  "name": "react-ssr-started",
+  "name": "react-ssr-starter",
   "version": "1.0.0",
   "author": "Denys Kuts",
   "engines": {
     "node": ">=8.11.0"
   },
   "scripts": {
-    "heroku-prebuild": "npm install pm2 -g",
     "analyze": "yarn build:with-stats && yarn start:analyzer",
     "build": "cross-env NODE_ENV=production node scripts/build.js",
     "build:with-stats": "cross-env NODE_ENV=production webpack --config config/webpack.config.js/client.prod.js --json > build/client/static/bundle-stats.json",
     "link-react": "yarn link react react-dom",
     "lint": "concurrently \"yarn lint:js\" \"yarn lint:css\"",
     "lint:js": "eslint ./src",
-    "plop": "plop",
-    "start": "cross-env NODE_ENV=development node scripts/start.js",
-    "serve": "pm2 start build/server/server.js --name react-ssr-started",
-    "serve:heroku": "pm2 start --attach build/server/server.js --name react-ssr-started",
-    "prod": "yarn build && yarn serve",
-    "start:analyzer": "webpack-bundle-analyzer build/client/static/bundle-stats.json",
     "lint:css": "stylelint ./src/**/*.css",
+    "plop": "plop",
+    "dev": "cross-env NODE_ENV=development node scripts/start.js --client-only",
+    "start": "cross-env NODE_ENV=development node scripts/start.js",
+    "start:analyzer": "webpack-bundle-analyzer build/client/static/bundle-stats.json",
+    "serve": "pm2 start build/server/server.js --name react-ssr-starter",
+    "serve:heroku": "pm2 start --attach build/server/server.js --name react-ssr-starter",
+    "prod": "yarn build && yarn serve",
+    "heroku-prebuild": "npm install pm2 -g",
     "heroku-postbuild": "yarn build"
   },
   "moduleRoots": [
