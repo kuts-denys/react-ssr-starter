@@ -65,7 +65,6 @@ app.use((err, req, res, next) => {
         ),
   });
 });
-console.log('process.env.PORT', process.env.PORT);
 app.listen(process.env.PORT || 8500, () => {
   console.log(
     `[${new Date().toISOString()}]`,

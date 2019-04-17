@@ -22,22 +22,22 @@ const generateStaticHTML = async () => {
   });
   // not sure if it's needed and what is it even doing
 
-  // script.on('start', async () => {
-  //   try {
-  //     // TODO: add try/wait/retry here instead of just generally waiting for 2000 ms
-  //     await sleep(2000);
-  //     const browser = await puppeteer.launch();
-  //     const page = await browser.newPage();
-  //     await page.goto(`${HOST}:${PORT}`);
-  //     const pageContent = await page.content();
-  //     fs.writeFileSync(`${paths.clientBuild}/index.html`, pageContent);
-  //     await browser.close();
-  //     script.emit('quit');
-  //   } catch (err) {
-  //     script.emit('quit');
-  //     console.log(err);
-  //   }
-  // });
+  script.on('start', async () => {
+    try {
+      // TODO: add try/wait/retry here instead of just generally waiting for 2000 ms
+      // await sleep(2000);
+      // const browser = await puppeteer.launch();
+      // const page = await browser.newPage();
+      // await page.goto(`${HOST}:${PORT}`);
+      // const pageContent = await page.content();
+      // fs.writeFileSync(`${paths.clientBuild}/index.html`, pageContent);
+      // await browser.close();
+      script.emit('quit');
+    } catch (err) {
+      script.emit('quit');
+      console.log(err);
+    }
+  });
 
   script.on('exit', (code) => {
     process.exit(code);
